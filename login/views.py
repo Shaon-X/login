@@ -6,7 +6,7 @@ from .forms import register_form
 
 # Create your views here.
 def user_login(request):
-    #logout(request)
+
     if request.user.is_authenticated:
         return redirect('home_url')
     if request.method == "POST":
