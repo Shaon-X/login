@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Home page</h1>
+
+  <p>Username: {{ user.username }} </p>
+  <p>Full Name: {{ user.get_full_name}} </p>
+  <p>Email: {{ user.email }} </p>
+  <p>Last Login: {{ user.last_login }} </p>
+{% if user.is_superuser %}
+  <div class="d-grid gap-2 d-md-block">
+    <a href="{% url 'admin_url' %}" class="btn btn-primary me-md-2">admin</a> {% csrf_token %}
+  </div>
+  <br>
+  {% endif %}
+
+  <div class="d-grid gap-2 d-md-block">
+    <a href="{% url 'delete_url' %}"  class="btn btn-primary me-md-2" style="background-color: red;">delete user</a> {% csrf_token %}
+</div>
+
+
+
+
+{% endblock %}

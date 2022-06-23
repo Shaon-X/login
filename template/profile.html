@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Profile</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Profile page</h1>
+
+  <form action='' method=POST> {% csrf_token %}
+
+    {% if form.errors %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Please fulfill the requirements....
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    <form action='' method=POST> {% csrf_token %}
+
+      {{ form.as_p }}
+
+      <div class="d-grid gap-2 d-md-block">
+        <a href="{% url 'home_url' %}" class="btn btn-primary me-md-2" style="background-color: red">Cancel</a>
+        <input type="submit" value="Submit" class="btn btn-primary me-md-2">
+      </div>
+
+  </form>
+
+{% endblock %}
