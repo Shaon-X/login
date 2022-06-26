@@ -4,12 +4,14 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import register_form
 
+
 # Create your views here.
 def user_login(request):
 
     if request.user.is_authenticated:
         return redirect('home_url')
     if request.method == "POST":
+       # print(request.POST)
         username=request.POST['username']
         password=request.POST['password']
         user=authenticate(request, username=username, password=password)
@@ -37,6 +39,7 @@ def register_page(request):
     if request.user.is_authenticated:
         return redirect('home_url')
     if request.method == "POST":
+        print(request.POST)
         form = register_form(request.POST)
         if form.is_valid():
             form.save()

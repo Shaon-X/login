@@ -7,8 +7,6 @@
 {% block content %}
   <h1>Profile page</h1>
 
-  <form action='' method=POST> {% csrf_token %}
-
     {% if form.errors %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       Please fulfill the requirements....
@@ -16,7 +14,7 @@
     </div>
     {% endif %}
 
-    <form action='' method=POST> {% csrf_token %}
+    <form action='' method=POST>
 
       {{ form.as_p }}
 
